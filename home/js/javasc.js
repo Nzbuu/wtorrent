@@ -26,6 +26,13 @@ function resizeInnerTab(i,hash) {
 }
 /* Resize to make shadedborders render the div again */
 function resize() {
+	/*ifCont.style.height = "auto";
+	ifCont.style.display = "none";
+	ifCont.style.display = "";
+	var display = ifPri.style.display;
+	ifPri.style.height = "auto";
+	ifPri.style.display = 'none';
+	ifPri.style.display = display;*/
 	Main.render('principal');
 }
 /* Check all elements of the specified class */
@@ -228,12 +235,6 @@ function batch()
 		case '2':
 			command = 'erase';
 			break;
-		case '3':
-			command = 'chash';
-			break;
-		case '4':
-			command = 'close';
-			break;
 	}
 			
 	var param = params.join('~');     
@@ -254,7 +255,7 @@ function defaultCall(command, param)
 	var call = new Array();
 	if(command == 'erase')
 	{
-		if(!confirm(confirmMsg))
+		if(!confirm(confirm))
 			return;
 	}
 	call[0] = 'cls=commands&tpl=commands&command=' + command + '&param=' + param;
